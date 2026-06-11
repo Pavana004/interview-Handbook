@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useRef } from "react";
 
 const CONCEPTS = {
   JavaScript: [
@@ -138,7 +138,7 @@ const CONCEPTS = {
       parts:
         "fn → the function to debounce\ndelay → wait time in ms\ntimer → tracks the timeout\nclearTimeout → cancels previous timer",
       example:
-        "const searchUsers = debounce((query) => {\n  fetch(`/api/search?q=${query}`);\n}, 300);\n\ninput.addEventListener('input', (e) => {\n  searchUsers(e.target.value);\n});",
+        "const searchUsers = debounce((query) => {\n  fetch(/api/search?q=${query}`);\n}, 300);\n\ninput.addEventListener('input', (e) => {\n  searchUsers(e.target.value);\n});",
       howItWorks:
         "1. Event fires, timer starts\n2. If event fires again before delay → timer resets\n3. Only executes after delay with no new calls\n4. Prevents excessive API calls while typing",
       keyTakeaway:
