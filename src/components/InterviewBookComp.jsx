@@ -84,7 +84,7 @@ const CONCEPTS = {
       parts:
         "async → marks function as returning a Promise\nawait → pauses execution until Promise settles\ntry/catch → handles rejected Promises",
       example:
-        "const getUser = async (id) => {\n  const res = await fetch(`/api/users/${id}`);\n  const user = await res.json();\n  return user;\n};",
+        "const getUser = async (id) => {\n  const res = await fetch('/api/users/${id}');\n  const user = await res.json();\n  return user;\n};",
       howItWorks:
         "1. async function always returns a Promise\n2. await suspends function execution\n3. Other tasks run while waiting\n4. Resumes when Promise resolves\n5. try/catch catches rejections",
       keyTakeaway:
