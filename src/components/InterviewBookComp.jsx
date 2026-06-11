@@ -84,7 +84,7 @@ const CONCEPTS = {
       parts:
         "async → marks function as returning a Promise\nawait → pauses execution until Promise settles\ntry/catch → handles rejected Promises",
       example:
-        "const getUser = async (id) => {\n  const res = await fetch('/api/users/${id}');\n  const user = await res.json();\n  return user;\n};",
+        "const getUser = async (id) => {\n  const res = await fetch(/api/users/${id});\n  const user = await res.json();\n  return user;\n};",
       howItWorks:
         "1. async function always returns a Promise\n2. await suspends function execution\n3. Other tasks run while waiting\n4. Resumes when Promise resolves\n5. try/catch catches rejections",
       keyTakeaway:
@@ -138,7 +138,7 @@ const CONCEPTS = {
       parts:
         "fn → the function to debounce\ndelay → wait time in ms\ntimer → tracks the timeout\nclearTimeout → cancels previous timer",
       example:
-        "const searchUsers = debounce((query) => {\n  fetch('/api/search?q=${query}');\n}, 300);\n\ninput.addEventListener('input', (e) => {\n  searchUsers(e.target.value);\n});",
+        "const searchUsers = debounce((query) => {\n  fetch(/api/search?q=${query});\n}, 300);\n\ninput.addEventListener('input', (e) => {\n  searchUsers(e.target.value);\n});",
       howItWorks:
         "1. Event fires, timer starts\n2. If event fires again before delay → timer resets\n3. Only executes after delay with no new calls\n4. Prevents excessive API calls while typing",
       keyTakeaway:
@@ -561,7 +561,7 @@ const CONCEPTS = {
       parts:
         "Cache-aside → app manages cache\nWrite-through → write to cache + DB together\nWrite-behind → write to cache, async DB update\nTTL → time-to-live, auto-expiry\nEviction → LRU, LFU, FIFO policies",
       example:
-        "const getUser = async (id) => {\n  const cached = await redis.get(`user:${id}`);\n  if (cached) return JSON.parse(cached);\n  \n  const user = await User.findById(id);\n  await redis.set(`user:${id}`, JSON.stringify(user), 'EX', 3600);\n  return user;\n};",
+        "const getUser = async (id) => {\n  const cached = await redis.get(user:${id});\n  if (cached) return JSON.parse(cached);\n  \n  const user = await User.findById(id);\n  await redis.set(`user:${id}`, JSON.stringify(user), 'EX', 3600);\n  return user;\n};",
       howItWorks:
         "1. Request checks cache first\n2. Cache hit → return data instantly\n3. Cache miss → fetch from DB\n4. Store in cache with TTL\n5. TTL expires → next request fetches fresh data",
       keyTakeaway:
